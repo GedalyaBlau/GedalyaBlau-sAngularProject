@@ -1,0 +1,13 @@
+<ng-container *ngFor="let moreInfo of moreInfos ; let i=index ">
+    <div *ngIf="i < 100 ">
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"><img src={{moreInfo.image.thumb}}></h5>
+                <p class="card-text"> &#36; {{moreInfo.market_data.current_price.usd}} </p>
+                <p class="card-text"> {{moreInfo.market_data.current_price.eur}}</p>
+                <p class="card-text"> {{moreInfo.market_data.current_price.ils}}</p>
+
+            </div>
+        </div>
+    </div>
+</ng-container>

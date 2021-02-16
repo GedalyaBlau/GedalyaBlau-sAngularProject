@@ -1,0 +1,42 @@
+<ng-container *ngFor="let coin of coins ; let i=index ">
+    <div *ngIf="i < 100 ">
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{coin.symbol}}</h5>
+                <p class="card-text">  {{coin.name}} </p>
+                
+                <p>
+                    <button type="button" 
+                    class="btn btn-outline-info" 
+                    (click)="collapse.toggle(coin)"
+                    [attr.aria-expanded]="isCollapsed"
+                    [aria-controls]="collapseExample">
+                      More Info
+                    </button>
+                  </p>
+                  <div #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed">
+                    <div class="card">
+                      <div class="card-body">
+                        <div class="card-body">
+                            <h5 class="card-title"><img src={{coin.image.small}}></h5>
+                            <p class="card-text"> &#36; {{coin.market_data.current_price.usd}} </p>
+                            <p class="card-text"> &#x20AC; {{coin.market_data.current_price.eur}}</p>
+                            <p class="card-text"> &#8362; {{coin.market_data.current_price.ils}}</p>
+            
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                  
+                
+                <div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id={{coin.name}}>
+  <label class="custom-control-label" for={{coin.name}}></label>
+</div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+ 
+ 
